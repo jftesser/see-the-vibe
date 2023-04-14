@@ -25,7 +25,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         <div className="login">
             <div>
                 <h1>Login</h1>
-                <form onSubmit={handleLogin}>
+                <form className="login-form" onSubmit={handleLogin}>
                     <input
                         type="email"
                         placeholder="Email"

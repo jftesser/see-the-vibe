@@ -6,10 +6,7 @@ html {
     background-color: black;
     color: white;
     font-family: $font-family;
-    select {
-        font-family: $font-family;
-    }
-    button {
+    select, button, input {
         font-family: $font-family;
     }
 }
