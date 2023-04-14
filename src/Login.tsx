@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from "react";
 import { signIn } from "./firebase/firebaseSetup";
-import "./Login.less";
+import "./Login.scss";
 
 interface LoginPageProps {
     onLogin: () => void;

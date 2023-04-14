@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+
+$font-family: 'IBM Plex Mono', monospace;
+
+html {
+    background-color: black;
+    color: white;
+    font-family: $font-family;
+    select {
+        font-family: $font-family;
+    }
+    button {
+        font-family: $font-family;
+    }
+}
