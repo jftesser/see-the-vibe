@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+functions/.runtimeconfig.json
+functions/see-the-vibe-firebase-adminsdk-bq6an-0f37f5f2c0.json
+src/firebase/creds.ts
