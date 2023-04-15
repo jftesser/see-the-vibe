@@ -65,12 +65,6 @@ const Camera: FC = () => {
             </div>
             <button className="cam-button" onClick={capture}></button>
             <div className={`flash-overlay ${isFlashActive ? 'active' : ''}`} />
-            <svg xmlns="http://www.w3.org/2000/svg">
-                <filter id="camFilter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
-                    <feMorphology operator="dilate" radius="15 15" x="0" y="0" width="100vw" height="100vw" in="SourceGraphic" result="morphology" />
-                    <feDisplacementMap in="morphology" in2="SourceGraphic" scale="20" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100vw" height="100vw" result="displacementMap1" />
-                </filter>
-            </svg>
         </div>
     );
 }

@@ -25,7 +25,7 @@
     height: 100vh;
     align-items: center;
     .camera-feed {
-      filter: url(#camFilter);
+      filter: blur(9.6px) contrast(2.43) grayscale(0.72) hue-rotate(219deg);
       width: 100vw;
       height: 100vw;
     }
