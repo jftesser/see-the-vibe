@@ -11,7 +11,6 @@ export const functions = getFunctions(firebaseApp);
 
 export const getImage = httpsCallable(functions, 'getImage');
 export const getVariant = httpsCallable(functions, 'getVariant');
-(window as any).getImage = getImage;
 
 export const signIn = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password)

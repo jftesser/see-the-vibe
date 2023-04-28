@@ -8,6 +8,7 @@ const Camera: FC = () => {
     const [cameradId, setCameraId] = useState<string | null>(null);
     const [deviceList, setDeviceList] = useState<MediaDeviceInfo[]>([]);
     const [vibeSrc, setVibeSrc] = useState<string | null>(null);
+    const [captureSrc, setCaptureSrc] = useState<string | null>(null);
     const [isFlashActive, setIsFlashActive] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const sz = 512;
@@ -25,9 +26,11 @@ const Camera: FC = () => {
                 setIsLoading(true);
                 setTimeout(() => setIsFlashActive(false), 200);
                 const imageSrc = webcamRef.current.getScreenshot();
+                setCaptureSrc(imageSrc);
                 if (imageSrc) getVariant(imageSrc.split(',')[1]).then((result) => {
                     console.log('variant', result);
                     setVibeSrc(result.data as string);
+                    setCaptureSrc(null);
                     setIsLoading(false);
                 });
             }
@@ -60,6 +63,8 @@ const Camera: FC = () => {
                     width={sz}
                     height={sz}
                 />
+                {captureSrc && <div className="vibe-photo camera-feed"><img src={captureSrc} width={sz} height={sz} alt="the camera capture" /></div>}
+                <div className="camera-frame" />
                 {isLoading && <div className="loading-overlay"><span>Generating...</span></div>}
                 {vibeSrc && <div className="vibe-photo"><img src={vibeSrc} width={sz} height={sz} alt="the vibey camera output" /><button onClick={clearVibe}>X</button></div>}
             </div>

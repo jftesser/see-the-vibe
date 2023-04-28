@@ -21,33 +21,19 @@ module.exports = {
     return blob;
   },
   async getVariation(blob) {
+    // convert to buffer
     const buff = Buffer.from(blob, "base64");
+    // add enough metadata to make openai happy
     buff.name = "image.png";
-    console.log(buff);
-
+    // request a variation
     const response = await openai.createImageVariation(
       buff,
       1,
       "512x512",
       "b64_json"
     );
-    //console.log('response', JSON.stringify(response));
+    // pass back the new blob
     const image_url = response.data.data[0].b64_json;
     return image_url;
-
-    // try {
-    //   const response = await openai.createImageVariation(
-    //     buff,
-    //     1,
-    //     "512x512",
-    //     "b64_json"
-    //   );
-    //   console.log('response', JSON.stringify(response));
-    //   const image_url = response.data.data[0].b64_json;
-    //   return image_url;
-    // } catch (error) {
-    //   console.log('error', JSON.stringify(error));
-    //   return null;
-    // }
   },
 };
