@@ -1,6 +1,50 @@
-# Getting Started with Create React App
+# See the vibe
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Set up firebase
+Create a firebase project and set up the following:
+
+Functions, hosting, storage and authentication
+
+- Go to https://console.firebase.google.com/ and create a new project
+- Go to build -> authentication -> sign-in method and choose Email/Password, create a user and password
+- Go to build -> storage and enable storage
+    - setup the ability for your functions to write to storage using the instructions [here](https://stackoverflow.com/questions/53143965/uploading-files-from-firebase-cloud-functions-to-cloud-storage).
+    - setup cors via `gsutils` 
+- In Firebase, go to Project Overview -> click the project name -> click the settings icon to go to project settings. 
+- In Project Settings, copy (or create and copy) the configuration data in the curly braces (including the curly braces). 
+- In `src/firebase`, create a file called `creds.ts` and paste the configuration data into the file.
+```typescript
+export const firebaseConfig = {
+    apiKey: "xxx",
+    authDomain: "xxx",
+    projectId: "xxx",
+    storageBucket: "xxx",
+    messagingSenderId: "xxx",
+    appId: "xxx",
+    measurementId: "xxx"
+};
+```
+- Open a new terminal from the root directory of your repo in VSCode, type `firebase login` to log in from the terminal 
+- In terminal, type `firebase init` and select the id of the project you just made
+    -  Choose to set up hosting, functions already exist in the repo (but you will be using them), do not set up github actions
+
+Set your OpenAI API key in firebase
+- Type `firebase functions:config:set openai.key="THE API KEY"` in the terminal
+- Type `firebase functions:config:set openai.org="THE ORG ID"` in the terminal
+- In terminal, go to `/functions` using `cd functions` from your root directory
+- Type `firebase functions:config:get > .runtimeconfig.json` in the terminal
+- In `.runtimeconfig.json` file, you should see this:
+```jSON
+{
+  "openai": {
+    "key": "YOUR OPENAI API KEY",
+    "org": "YOUR OPENAI ORG"
+  }
+}
+```
+
 
 ## Available Scripts
 
