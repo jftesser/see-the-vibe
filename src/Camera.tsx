@@ -65,7 +65,7 @@ const Camera: FC = () => {
                 />
                 {captureSrc && <div className="vibe-photo camera-feed"><img src={captureSrc} width={sz} height={sz} alt="the camera capture" /></div>}
                 <div className="camera-frame" />
-                {isLoading && <div className="loading-overlay"><span>Generating...</span></div>}
+                {isLoading && <div className="loading-overlay"><span>Vibing...</span></div>}
                 {vibeSrc && <div className="vibe-photo"><img src={vibeSrc} width={sz} height={sz} alt="the vibey camera output" /><button onClick={clearVibe}>X</button></div>}
             </div>
             <button className="cam-button" onClick={capture}></button>
